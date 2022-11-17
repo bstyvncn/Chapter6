@@ -16,7 +16,7 @@ public class bookFilm {
     @OneToOne
     private users user;
 
-    @OneToMany
+    @ManyToOne
     private seats seats;
 
     @OneToOne

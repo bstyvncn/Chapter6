@@ -6,15 +6,16 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface filmRepository extends JpaRepository<film, String> {
 
-    @Query(value = "DELETE FROM film WHERE namaFilm = :namaFilm;", nativeQuery = true)
+    @Query(value = "DELETE FROM film WHERE nama_film = :nama_film;", nativeQuery = true)
     public void deleteFilm(@Param("namaFilm") String namaFilm);
 
-    @Query(value = "SELECT f FROM Film f WHERE STATUS_TAYANG = 'Tayang'")
+    @Query(value = "SELECT f FROM film f WHERE STATUS_TAYANG = 'Tayang'")
     public List<film> findFilmByStatusTayang();
 
     @Modifying

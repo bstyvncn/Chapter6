@@ -7,8 +7,9 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 public class FilmRepositoryTest {
+    filmRepository filmRepository;
     @Test
-    getUsersByUsername(){
+    void getUsersByUsername(){
         List<film> usersList = filmRepository.findFilmByStatusTayang();
     }
 }

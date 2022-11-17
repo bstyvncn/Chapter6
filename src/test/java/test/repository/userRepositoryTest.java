@@ -11,15 +11,7 @@ import java.util.List;
 @SpringBootTest
 public class userRepositoryTest {
     @Autowired
+    userRepository userRepository;
 
-    org.binar.chapter4.repositories.userRepository userRepository;
 
-    @Test
-    void testAddData(){
-        org.binar.chapter4.repositories.userRepository = new
-    }
-
-    @Test getUsersByUsername(){
-        List<users> usersList = userRepository.findUsersByUsername()
-    }
 }
