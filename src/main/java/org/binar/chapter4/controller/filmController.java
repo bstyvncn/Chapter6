@@ -32,7 +32,7 @@ public class filmController {
             @ApiResponse(responseCode = "200", description = "return success",
                     content = {@Content(mediaType = "application/json", schema = @Schema(implementation = filmResponse.class))})
     })
-    @PostMapping(value = "/new_film")
+    @PostMapping("/public/add-film")
     public ResponseEntity newFilm(@RequestParam("namaFilm") String namaFilm, @RequestParam("statusTayang") String statusTayang) {
         Map<String, Object> resp = new HashMap<>();
         resp.put("message", "insert success!");
@@ -57,7 +57,7 @@ public class filmController {
             @ApiResponse(responseCode = "200", description = "return success",
                     content = {@Content(mediaType = "application/json", schema = @Schema(implementation = filmResponse.class))})
     })
-    @PutMapping(value = "/update_film")
+    @PutMapping("/admin/update-film")
     public ResponseEntity updateFilm(@RequestParam("NameFrom") String from, @RequestParam("NameTo") String to) {
         Map<String, Object> resp = new HashMap<>();
         resp.put("message", "update success!");
@@ -78,8 +78,8 @@ public class filmController {
             @ApiResponse(responseCode = "200", description = "return success",
                     content = {@Content(mediaType = "application/json", schema = @Schema(implementation = filmResponse.class))})
     })
-    @PutMapping(value = "/delete_film")
-    public ResponseEntity deleteFilm(@Valid @RequestBody filmRequest filmRequest, @RequestParam("film") film film) {
+    @PutMapping("/admin/delete-film")
+    public ResponseEntity deleteFilm(@RequestParam("film") film film) {
         Map<String, Object> resp = new HashMap<>();
         resp.put("message", "delete success!");
 
@@ -99,7 +99,7 @@ public class filmController {
             @ApiResponse(responseCode = "200", description = "return success",
                     content = {@Content(mediaType = "application/json", schema = @Schema(implementation = filmResponse.class))})
     })
-    @GetMapping(value = "/update_film")
+    @GetMapping("/public/show-film")
     public ResponseEntity showFilm() {
         Map<String, Object> respgagal = new HashMap<>();
 

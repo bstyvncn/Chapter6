@@ -21,11 +21,8 @@ import java.util.Map;
 @Service
 public class InvoiceService {
     @GetMapping("/generateinvoice")
-    public void generateInvoice(HttpServletResponse response,
-                                @RequestParam("Username") String username,
-                                @RequestParam("NomorKursi") String nomorKursi, @RequestParam("NamaFilm") String namaFilm,
-                                @RequestParam("Tanggal") String Tanggal, @RequestParam("JamMulai") String jamMulai,
-                                @RequestParam("JamSelesai") String jamSelesai) {
+    public void generateInvoice(HttpServletResponse response, String username, String nomorKursi, String namaFilm,
+                                String Tanggal, String jamMulai, String jamSelesai) {
         try {
             JasperReport sourceFileName = JasperCompileManager.compileReport
                     (ResourceUtils.getFile(ResourceUtils.CLASSPATH_URL_PREFIX + "nametag.jrxml").getAbsolutePath());

@@ -3,10 +3,8 @@ package org.binar.chapter4.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.binar.chapter4.model.request.userRequest;
 import org.binar.chapter4.model.response.userResponse;
 import org.binar.chapter4.model.users;
 import org.binar.chapter4.service.IUsersService;
@@ -16,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,7 +34,7 @@ public class usersController {
             @ApiResponse(responseCode = "200", description = "return success",
                     content = {@Content(mediaType = "application/json", schema = @Schema(implementation = userResponse.class))})
     })
-    @PostMapping(value = "/new_user")
+    @PostMapping("/public/new-user")
     public ResponseEntity newUser(@RequestParam("username") String username,
                                   @RequestParam("email") String email, @RequestParam("address") String address,
                                   @RequestParam("password") String password) {
@@ -65,8 +62,8 @@ public class usersController {
             @ApiResponse(responseCode = "200", description = "return success",
                     content = {@Content(mediaType = "application/json", schema = @Schema(implementation = userResponse.class))})
     })
-    @PutMapping(value = "/update_user")
-    public ResponseEntity updateUser(@Valid @RequestBody userRequest userRequest, String usernameFrom, String usernameTo) {
+    @PutMapping("/customer/update-user")
+    public ResponseEntity updateUser(@RequestParam("usernameFrom") String usernameFrom, @RequestParam("usernameTo") String usernameTo) {
         Map<String, Object> resp = new HashMap<>();
         resp.put("message", "update success!");
 
@@ -86,8 +83,8 @@ public class usersController {
             @ApiResponse(responseCode = "200", description = "return success",
                     content = {@Content(mediaType = "application/json", schema = @Schema(implementation = userResponse.class))})
     })
-    @PutMapping(value = "/delete_user")
-    public ResponseEntity deleteUser(@Valid @RequestBody userRequest userRequest, String username) {
+    @PutMapping("/customer/delete-user")
+    public ResponseEntity deleteUser(@RequestParam("username") String username) {
         Map<String, Object> resp = new HashMap<>();
         resp.put("message", "delete success!");
 

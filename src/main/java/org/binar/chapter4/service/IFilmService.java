@@ -4,7 +4,6 @@ import org.binar.chapter4.model.film;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
 public interface IFilmService {
     void newFilm(film film);
     List<film> showFilm();

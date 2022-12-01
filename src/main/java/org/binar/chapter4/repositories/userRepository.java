@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface userRepository extends JpaRepository <users, String>{
@@ -22,6 +23,10 @@ public interface userRepository extends JpaRepository <users, String>{
     @Modifying
     @Procedure("change_username")
     public void changeUsername(String usernameFrom, String usernameTo);
+
+    Optional<users> findByUsername(String username);
+    Boolean existsByUsername(String username);
+    Boolean existsByEmail(String email);
 
 
 }

@@ -34,7 +34,7 @@ public class scheduleController {
             @ApiResponse(responseCode = "200", description = "return success",
                     content = {@Content(mediaType = "application/json", schema = @Schema(implementation = scheduleResponse.class))})
     })
-    @PostMapping(value = "/show_sch")
+    @PostMapping("/public/show-schedule")
     public ResponseEntity viewSchedule(@RequestParam("film") film film) {
 
         schedule schedule = (org.binar.chapter4.model.schedule) scheduleService.viewSchedule(film);

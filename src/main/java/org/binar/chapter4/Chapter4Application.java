@@ -7,15 +7,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Scanner;
 
 @SpringBootApplication
-public class Chapter4Application implements CommandLineRunner {
+public class Chapter4Application {
 
-	Main main;
 
-	@Override
-	public void run(String... args) throws Exception {
-		Scanner scan = new Scanner(System.in);
-		main.init(scan);
-	}
+//	@Override
+//	public void run(String... args) throws Exception {
+//		Scanner scan = new Scanner(System.in);
+//		main.init(scan);
+//	}
 
 
 	public static void main(String[] args) {
